@@ -39,27 +39,59 @@
             border-radius: 8px;
             margin-bottom: 10px;
         }
+        .fullscreen-btn {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .fullscreen-btn:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
     <h1>Family Games by Oliver</h1>
     <div class="game-grid">
         <div class="game-container">
-            <iframe src="https://scratch.mit.edu/projects/1026834422/embed" allowtransparency="true" frameborder="0" scrolling="no" allowfullscreen></iframe>
+            <iframe id="game1" src="https://scratch.mit.edu/projects/1026834422/embed" allowtransparency="true" frameborder="0" scrolling="no" allowfullscreen></iframe>
             <p><strong>Game 1:</strong> Use arrow keys to move, spacebar to jump.</p>
+            <button class="fullscreen-btn" onclick="toggleFullscreen('game1')">Full Screen</button>
         </div>
         <div class="game-container">
-            <iframe src="https://scratch.mit.edu/projects/1022723045/embed" allowtransparency="true" frameborder="0" scrolling="no" allowfullscreen></iframe>
+            <iframe id="game2" src="https://scratch.mit.edu/projects/1022723045/embed" allowtransparency="true" frameborder="0" scrolling="no" allowfullscreen></iframe>
             <p><strong>Game 2:</strong> Click the mouse to shoot, arrow keys to move.</p>
+            <button class="fullscreen-btn" onclick="toggleFullscreen('game2')">Full Screen</button>
         </div>
         <div class="game-container">
-            <iframe src="https://scratch.mit.edu/projects/975736536/embed" allowtransparency="true" frameborder="0" scrolling="no" allowfullscreen></iframe>
+            <iframe id="game3" src="https://scratch.mit.edu/projects/975736536/embed" allowtransparency="true" frameborder="0" scrolling="no" allowfullscreen></iframe>
             <p><strong>Game 3:</strong> WASD keys to move, spacebar to shoot.</p>
+            <button class="fullscreen-btn" onclick="toggleFullscreen('game3')">Full Screen</button>
         </div>
         <div class="game-container">
-            <iframe src="https://scratch.mit.edu/projects/975438749/embed" allowtransparency="true" frameborder="0" scrolling="no" allowfullscreen></iframe>
+            <iframe id="game4" src="https://scratch.mit.edu/projects/975438749/embed" allowtransparency="true" frameborder="0" scrolling="no" allowfullscreen></iframe>
             <p><strong>Game 4:</strong> Arrow keys to move, collect all items to win.</p>
+            <button class="fullscreen-btn" onclick="toggleFullscreen('game4')">Full Screen</button>
         </div>
     </div>
+
+    <script>
+        function toggleFullscreen(gameId) {
+            var iframe = document.getElementById(gameId);
+            if (iframe.requestFullscreen) {
+                iframe.requestFullscreen();
+            } else if (iframe.mozRequestFullScreen) { // Firefox
+                iframe.mozRequestFullScreen();
+            } else if (iframe.webkitRequestFullscreen) { // Chrome, Safari and Opera
+                iframe.webkitRequestFullscreen();
+            } else if (iframe.msRequestFullscreen) { // IE/Edge
+                iframe.msRequestFullscreen();
+            }
+        }
+    </script>
 </body>
 </html>
